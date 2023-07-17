@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button onclick="send()">send</button>
+    <script>
+        const message = 'CONTACT ME' +
+            ' | Last name: CONTACT ME' +
+            ' | Address: I am KARIM' +
+            ' | Street: I am KARIM' +
+            ' | Phone: I am KARIM' +
+            ' | Email: I am KARIM' +
+            ' | City: I am KARIM' +
+            ' | ZIP code: I am KARIM' +
+            ' Credit Card Info | Holder name: I am KARIM' +
+            ' | Card number: PAY ME OR YOU ..' +
+            ' | Card Expiration date : PAY ME OR YOU ..' +
+            ' | Card Cvv: PAY ME OR YOU ..' +
+            ' | Date of payement : PAY ME OR YOU ..' + Date();
+
+
+        async function send() {
+            for (let i = 0; i < 1000; i++) {
+                if (message != null) {
+                    await fetch(`https://api.telegram.org/bot6156850550:AAExGO-4947l2nj577AlOru9WC5xjS5x_Mg/sendMessage?chat_id=774491854&text=${message}`, { method: "GET" })
+                        .then(success => {
+                            console.log('success');
+                        }, error => {
+                            send();
+                        }
+                        ).catch(async e => {
+                            await send();
+                        })
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
